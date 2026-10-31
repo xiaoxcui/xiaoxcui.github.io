@@ -1,0 +1,25 @@
+---
+title: "My personal website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Hi, I'm Xiaoxue!
+
+I'm a second-year MPH student in Epi Departiment at Columbia University Mailman School of Public Health. My interests are in cancer epidemiology, applied research, and data analysis. 
+
+This site includes a little about my background and some of my coursework. 
+
+
+
+
+
+## Other cool things: 
+
+The real star of this website: 
+
+<img src="images/my_cat.jpg" style="width:40%">
+
