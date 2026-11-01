@@ -13,8 +13,9 @@ This Dashboard page presents the interactive visualization component of Homework
 The dataset used is "the Instacart Online Grocery Shopping Dataset 2017". Detail information can be accessed [here](https://p8105.com/dataset_instacart.html). This analysis aims to explore the shopping behaviors of Instacart users. 
 
 
-**Load the dataset**
-```{r}
+#### Load the dataset
+
+```{r, message=FALSE}
 library(p8105.datasets)
 library(tidyverse)
 library(plotly)
@@ -25,6 +26,9 @@ data("instacart")
 ```
 
 The Instacart dataset contains `r nrow(instacart)` observations of `r n_distinct(pull(instacart, user_id))` and `r ncol(instacart)` variables. Each observation represents a product within an order. Key variables include `product_name`, `aisle`, and `department`, which describe the products purchased; `order_dow` and `order_hour_of_day`, which indicate when orders were placed; and `reordered`
+
+
+#### Shopping patterns across the week - Heatmap
 
 ```{r}
 # How does the number of Instacart orders vary by day of the week and hour of the day? 
@@ -68,6 +72,48 @@ order_heatmap =
     title = "Number of Instacart orders by day of week and hour of day", 
     xaxis = list(title = "Hour of day"), 
     yaxis = list(title = "Day of week")
+  )
+```
+
+
+#### Reordinging patterns by product department - Bar Chart
+
+```{r}
+# How do reorder rates vary across the 10 most frequently purchased product departments? 
+department_bar =
+# Prepare data for the top 10 frequently purchased product departments
+  instacart |>
+  filter(!is.na(department), !is.na(reordered)) |>
+  group_by(department) |>
+  summarize(
+    total_items = n(),
+    reordered_items = sum(reordered == 1),
+    reorder_rate = round(100 * reordered_items / total_items, 1)
+  ) |>
+  slice_max(total_items, n = 10) |>
+# Reorder departments by reorder rate
+  mutate(
+    department = fct_reorder(department, reorder_rate)
+    ) |>
+# Create an interactive bar chart
+  plot_ly(
+    x = ~reorder_rate,
+    y = ~department, 
+    type = "bar",
+    color = ~department, 
+    colors = "viridis", 
+    customdata = ~total_items, 
+    hovertemplate = paste0(
+      "Department: %{y}",
+      "<br>Reorder rate: %{x}%",
+      "<br>Total items: %{customdata}",
+      "<extra></extra>"
+    )
+  ) |>
+  layout(
+    title = "Reorder rates across top 10 product departments",
+    xaxis = list(title = "Reorder rate (%)"),
+    yaxis = list(title = "Product department")
   )
 ```
 

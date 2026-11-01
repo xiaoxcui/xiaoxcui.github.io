@@ -368,35 +368,12 @@ manner.</p>
 2017”. Detail information can be accessed <a
 href="https://p8105.com/dataset_instacart.html">here</a>. This analysis
 aims to explore the shopping behaviors of Instacart users.</p>
-<p><strong>Load the dataset</strong></p>
+<div id="load-the-dataset" class="section level4">
+<h4>Load the dataset</h4>
 <pre class="r"><code>library(p8105.datasets)
-library(tidyverse)</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.2.1     ✔ readr     2.2.0
-## ✔ forcats   1.0.1     ✔ stringr   1.6.0
-## ✔ ggplot2   4.0.3     ✔ tibble    3.3.1
-## ✔ lubridate 1.9.5     ✔ tidyr     1.3.2
-## ✔ purrr     1.2.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<pre class="r"><code>library(plotly)</code></pre>
-<pre><code>## 
-## 载入程序包：&#39;plotly&#39;
-## 
-## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     last_plot
-## 
-## The following object is masked from &#39;package:stats&#39;:
-## 
-##     filter
-## 
-## The following object is masked from &#39;package:graphics&#39;:
-## 
-##     layout</code></pre>
-<pre class="r"><code>library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(flexdashboard)
 
 # Load the Instacart dataset
 data(&quot;instacart&quot;)</code></pre>
@@ -406,6 +383,10 @@ variables include <code>product_name</code>, <code>aisle</code>, and
 <code>department</code>, which describe the products purchased;
 <code>order_dow</code> and <code>order_hour_of_day</code>, which
 indicate when orders were placed; and <code>reordered</code></p>
+</div>
+<div id="shopping-patterns-across-the-week---heatmap"
+class="section level4">
+<h4>Shopping patterns across the week - Heatmap</h4>
 <pre class="r"><code># How does the number of Instacart orders vary by day of the week and hour of the day? 
 order_heatmap = 
 # Prepare data
@@ -448,6 +429,47 @@ order_heatmap =
     xaxis = list(title = &quot;Hour of day&quot;), 
     yaxis = list(title = &quot;Day of week&quot;)
   )</code></pre>
+</div>
+<div id="reordinging-patterns-by-product-department---bar-chart"
+class="section level4">
+<h4>Reordinging patterns by product department - Bar Chart</h4>
+<pre class="r"><code># How do reorder rates vary across the 10 most frequently purchased product departments? 
+department_bar =
+# Prepare data for the top 10 frequently purchased product departments
+  instacart |&gt;
+  filter(!is.na(department), !is.na(reordered)) |&gt;
+  group_by(department) |&gt;
+  summarize(
+    total_items = n(),
+    reordered_items = sum(reordered == 1),
+    reorder_rate = round(100 * reordered_items / total_items, 1)
+  ) |&gt;
+  slice_max(total_items, n = 10) |&gt;
+# Reorder departments by reorder rate
+  mutate(
+    department = fct_reorder(department, reorder_rate)
+    ) |&gt;
+# Create an interactive bar chart
+  plot_ly(
+    x = ~reorder_rate,
+    y = ~department, 
+    type = &quot;bar&quot;,
+    color = ~department, 
+    colors = &quot;viridis&quot;, 
+    customdata = ~total_items, 
+    hovertemplate = paste0(
+      &quot;Department: %{y}&quot;,
+      &quot;&lt;br&gt;Reorder rate: %{x}%&quot;,
+      &quot;&lt;br&gt;Total items: %{customdata}&quot;,
+      &quot;&lt;extra&gt;&lt;/extra&gt;&quot;
+    )
+  ) |&gt;
+  layout(
+    title = &quot;Reorder rates across top 10 product departments&quot;,
+    xaxis = list(title = &quot;Reorder rate (%)&quot;),
+    yaxis = list(title = &quot;Product department&quot;)
+  )</code></pre>
+</div>
 </div>
 
 
