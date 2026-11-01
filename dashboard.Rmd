@@ -1,0 +1,73 @@
+---
+title: "Dashboard"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Create `flexdashboard` to visualize data interactively
+
+This Dashboard page presents the interactive visualization component of Homework 4 for P8105 Data Science. Using `Plotly` and `flexdashboard`, this part combines at least three different types of plots to illustrate data in a more attractive and accessible manner. 
+
+The dataset used is "the Instacart Online Grocery Shopping Dataset 2017". Detail information can be accessed [here](https://p8105.com/dataset_instacart.html). This analysis aims to explore the shopping behaviors of Instacart users. 
+
+
+**Load the dataset**
+```{r}
+library(p8105.datasets)
+library(tidyverse)
+library(plotly)
+library(flexdashboard)
+
+# Load the Instacart dataset
+data("instacart")
+```
+
+The Instacart dataset contains `r nrow(instacart)` observations of `r n_distinct(pull(instacart, user_id))` and `r ncol(instacart)` variables. Each observation represents a product within an order. Key variables include `product_name`, `aisle`, and `department`, which describe the products purchased; `order_dow` and `order_hour_of_day`, which indicate when orders were placed; and `reordered`
+
+```{r}
+# How does the number of Instacart orders vary by day of the week and hour of the day? 
+order_heatmap = 
+# Prepare data
+  instacart |> 
+  distinct(order_id, order_dow, order_hour_of_day) |> 
+  count(order_dow, order_hour_of_day, name = "n_orders") |> 
+  group_by(order_dow) |> 
+  mutate(
+    percentage = 100 * n_orders / sum(n_orders), 
+    day = factor(
+      order_dow, 
+      levels = 0:6, 
+      labels = c("Sunday", "Monday", "Tuesday", "Wednesday",
+                 "Thursday", "Friday", "Saturday")
+    )
+  ) |> 
+  ungroup() |> 
+# Create an interactive heatmap
+  plot_ly(
+    x = ~order_hour_of_day, 
+    y = ~day, 
+    z = ~n_orders, 
+    customdata = ~percentage, 
+    type = "heatmap", 
+    colors = "Blues", 
+    colorbar = list(title = "Number of orders"),
+    xgap = 1.5, 
+    ygap = 1.5, 
+    height = 350, 
+    hovertemplate = paste0(
+      "Day: %{y}",
+      "<br>Hour: %{x}:00",
+      "<br>Number of orders: %{z}",
+      "<br>Percentage of day's orders: %{customdata:.1f}%",
+      "<extra></extra>"
+    )
+  ) |> 
+  layout(
+    title = "Number of Instacart orders by day of week and hour of day", 
+    xaxis = list(title = "Hour of day"), 
+    yaxis = list(title = "Day of week")
+  )
+```
+
