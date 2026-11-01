@@ -368,15 +368,8 @@ manner.</p>
 2017”. Detail information can be accessed <a
 href="https://p8105.com/dataset_instacart.html">here</a>. This analysis
 aims to explore the shopping behaviors of Instacart users.</p>
-<div id="load-the-dataset" class="section level4">
-<h4>Load the dataset</h4>
-<pre class="r"><code>library(p8105.datasets)
-library(tidyverse)
-library(plotly)
-library(flexdashboard)
-
-# Load the Instacart dataset
-data(&quot;instacart&quot;)</code></pre>
+<div id="load-the-dataset" class="section level3">
+<h3>Load the dataset</h3>
 <p>The Instacart dataset contains 1384617 observations of 131209 and 15
 variables. Each observation represents a product within an order. Key
 variables include <code>product_name</code>, <code>aisle</code>, and
@@ -385,8 +378,8 @@ variables include <code>product_name</code>, <code>aisle</code>, and
 indicate when orders were placed; and <code>reordered</code></p>
 </div>
 <div id="shopping-patterns-across-the-week---heatmap"
-class="section level4">
-<h4>Shopping patterns across the week - Heatmap</h4>
+class="section level3">
+<h3>Shopping patterns across the week - Heatmap</h3>
 <pre class="r"><code># How does the number of Instacart orders vary by day of the week and hour of the day? 
 order_heatmap = 
 # Prepare data
@@ -431,8 +424,8 @@ order_heatmap =
   )</code></pre>
 </div>
 <div id="reordinging-patterns-by-product-department---bar-chart"
-class="section level4">
-<h4>Reordinging patterns by product department - Bar Chart</h4>
+class="section level3">
+<h3>Reordinging patterns by product department - Bar Chart</h3>
 <pre class="r"><code># How do reorder rates vary across the 10 most frequently purchased product departments? 
 department_bar =
 # Prepare data for the top 10 frequently purchased product departments
@@ -468,6 +461,41 @@ department_bar =
     title = &quot;Reorder rates across top 10 product departments&quot;,
     xaxis = list(title = &quot;Reorder rate (%)&quot;),
     yaxis = list(title = &quot;Product department&quot;)
+  )</code></pre>
+</div>
+<div id="basket-size-across-different-times-of-day---boxplot"
+class="section level3">
+<h3>Basket size across different times of day - Boxplot</h3>
+<pre class="r"><code># How does the distribution of basket sizes vary across different times of day? 
+basket_size_box = 
+# Prepare data
+  instacart |&gt;
+  count(order_id, order_hour_of_day, name = &quot;basket_size&quot;) |&gt;
+  mutate(
+    time_period = case_when(
+      order_hour_of_day &lt; 6 ~ &quot;Night&quot;,
+      order_hour_of_day &lt; 12 ~ &quot;Morning&quot;,
+      order_hour_of_day &lt; 18 ~ &quot;Afternoon&quot;,
+      TRUE ~ &quot;Evening&quot;
+    ),
+    time_period = factor(
+      time_period,
+      levels = c(&quot;Night&quot;, &quot;Morning&quot;, &quot;Afternoon&quot;, &quot;Evening&quot;)
+    )
+  ) |&gt;
+# Create an interactive boxplot
+  plot_ly(
+    x = ~time_period,
+    y = ~basket_size,
+    color = ~time_period,
+    type = &quot;box&quot;,
+    colors = &quot;viridis&quot;, 
+    boxpoints = &quot;outliers&quot;
+  ) |&gt;
+  layout(
+    title = &quot;Distribution of basket sizes across different times of day&quot;,
+    xaxis = list(title = &quot;Time of day&quot;),
+    yaxis = list(title = &quot;Number of products per order&quot;)
   )</code></pre>
 </div>
 </div>
