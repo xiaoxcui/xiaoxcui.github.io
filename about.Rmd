@@ -1,0 +1,17 @@
+---
+title: "About"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+### About this site
+
+This website was created by Xiaoxue Cui. It is hosted using GitHub Pages, and the source code is available on [GitHub](https://github.com/xiaoxcui/xiaoxcui.github.io). 
+
+Relevant coding materials can be referred to in the lecture [Making a Website](https://p8105.com/making_websites.html) and the lecture [Plotly](https://p8105.com/plotly_and_dashboards.html) for course P8105 Data Science. 
+
+
+Click to go back [home](index.html) 
