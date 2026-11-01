@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # Hi, I'm Xiaoxue!
@@ -14,21 +13,5 @@ My name is Xiaoxue Cui. I'm a second-year MPH student in Epi Departiment at Colu
 This site includes a little about my background and some of my coursework. 
 
 To learn more about myself, go [here](resume.html)
-
-
-
-
-
-
-My cat, who is unfortunately not in New York with me: 
-
-<img src="images/my_cat.jpg" style="width:40%">
-
-
-
-
-
-
-
 
 
