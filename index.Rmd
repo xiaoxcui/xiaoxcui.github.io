@@ -13,13 +13,22 @@ I'm a second-year MPH student in Epi Departiment at Columbia University Mailman 
 
 This site includes a little about my background and some of my coursework. 
 
+To learn more about myself, go [here](resume.html)
 
 
 
 
-## Other cool things: 
 
-The real star of this website: 
+
+My cat, who is unfortunately not in New York with me: 
 
 <img src="images/my_cat.jpg" style="width:40%">
+
+
+
+
+
+
+
+
 

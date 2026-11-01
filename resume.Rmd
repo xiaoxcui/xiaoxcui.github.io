@@ -1,0 +1,113 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+### Education
+
+**Columbia University Mailman School of Public Health** 
+New York, NY | Sep. 2025 - May 2027 (expected)
+
+*Master of Public Health in Epidemiology*
+
+* Certificate: Epidemiology of Chronic Disease
+* Relevant coursework: Epidemiologic Study Design, Observational Research Methods, Categorical Data Analysis, Data Cleaning and Analysis in SAS
+
+**Univeristy of Toronto**
+Toronto, Canada | Sep. 2020 - Jun. 2024
+
+*Bachelor of Science in Physiology and Human Biology*
+
+* Dean's List Scholar (2020-2024)
+
+
+
+### Internship and Professional Experience
+
+**Columbia SURGE & WHO Action**
+New York, NY | Jun. 2026 - Aug. 2026
+
+* Helped with a project aiming to assess UN Special Procedures as a pathway to strengthen WHO engagement on firearm violence
+* Reviewed UN documents such as communications, joint statements, relevant reports across priority UN Special Procedures mandates to identify firearm violence entry points for WHO-focused advocacy
+* Synthesized epidemiologic and  public health evidence on the global burden of firearm violence and translated findings into a strategy paper
+
+**Qingdao Customs Technical Center, Hongdao Inspection Base**
+Qingdao, China | Dec. 2024 - Feb. 2025
+
+* Conducted routine microbiological testing of food samples through sampling, enrichment, plating, and colony enumeration
+* Applied culture-based and biochemical methods for microorganism identification and conducted antimicrobial performance testing on textile samples
+* Recorded and organized results and assisted in preparing laboratory reports while ensuring compliance with safety regulations and standard operating procedures
+
+
+
+### Graduate Academic Projects
+##### Columbia University Mailman School of Public Health
+New York, NY
+
+**NHANES Milke Type Consumption and Calcium Intake Analaysis**
+Spring 2026
+
+* Cleaned NHANES 2017-March 2020 data in SAS by performing sample selection, handling missing data and operationalizing relevant variables to build an analytic dataset of 4,603 US adults aged 18-59
+* Conducted descriptive analysis by using frequency tables, chi-square tests and one-way ANOVA, then fit crude and covariate-adjusted linear regression models to assess association between exposure and outcome
+* Performed a sensitivity analysis excluding calcium intakes >3,000 mg/day to assess robustness, and summarized results in tables and a structured scientific abstract
+
+**MASLD Prevention and Risk Communication Interview Project**
+Spring 2026
+
+* Designed and conducted an interview with a hepatobiliary specialist on how physician-patient communication influences willingness to adopt behavior change related to fatty liver disease 
+* Coded and synthesized interview findings on risk communication, focusing on risk explanation, actionable recommendations, and supportive messaging in behavior change and chronic disease prevention
+* Examined opportunities and barriers for collaboration between clinical teams and public health practitioners in screening, follow-up, and prevention program design 
+
+**Policy Advocacy Op-Ed on Child Firearm Injury Prevention**
+Fall 2025
+* Wrote a policy advocacy op-ed on preventing unintentional firearm injuries in children, integrating literature and program evidence to propose multi-level interventions such as stronger safe storage standards, hospital-based screening and counseling, and community follow-up support 
+* Tailored writing for policy audiences by translating evidence into clear and decision-relevant language to strengthen public health advocacy and audience-centered communication
+* Refined the framing of the issue through reflection, shifting emphasis toward systemic gaps, resource access, and structural barriers affecting vulnerable populations, using an equity and cultural humility lens 
+
+
+
+### Undergraduate Research Project
+##### University of Toronto
+Toronto, Canada
+
+**Effect of Novel GRIN1 Mutation on Synaptic Signaling Transmission and Long-Term Potentiation** 
+2023
+
+* Investigated the role of novel GRIN1 G827R mutation in early-onset encephalopathies using mouse models
+* Recorded hippocampal Schaffer collateral pathways and observed significant changes in synaptic plasticity, such as impaired long-term potentiation and altered NMDA and AMPA receptor function
+* Contributed to understanding molecular mechanisms of encephalopathy and personalized treatment strategies
+
+**Roles of Cyclin and BDNF in Liver Adaptation During Pregnancy**
+2023
+
+* Investigated hepatic metabolic adaptations in pregnancy using ontology analysis 
+* Found that cyclin upregulation supported cellular proliferation, while BDNF-related pathways were downregulated, suggesting links to gestational diabetes
+* Provided novel insights into gestational liver adaptations and potential therapeutic targets for metabolic disorders 
+
+
+
+### Publication 
+Cui, X. (2024). The role of ICAM-1 on immune cells in glioblastoma: A literature review. *Undergraduate Research in Natural and Clinical Sciences and Technology Journal*, 8(7), 1-10. [DOI](https://doi.org/10.26685/urncst.626)
+
+
+
+### Skills
+
+**Programming & Data Analysis:** R, SAS, Excel  
+**Epidemiology & Public Health:** Epidemiologic study design, data cleaning and analysis, literature synthesis, qualitative coding  
+**Laboratory:** PCR, genotyping, ELISA, cell culture, DNA extraction, immunohistochemistry  
+**Languages:** Mandarin Chinese, English
+
+
+
+
+
+
+
+
+
+Click to go back [home](index.html) 
