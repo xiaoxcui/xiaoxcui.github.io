@@ -111,4 +111,4 @@ Cui, X. (2024). The role of ICAM-1 on immune cells in glioblastoma: A literature
 
 
 
-Click to go back [home](index.html) 
+Click to go back [home](index.html).  

@@ -13,4 +13,4 @@ This website was created by Xiaoxue Cui. It is hosted using GitHub Pages, and th
 Relevant coding materials can be referred to in the lecture [Making a Website](https://p8105.com/making_websites.html) and the lecture [Plotly](https://p8105.com/plotly_and_dashboards.html) for course P8105 Data Science. 
 
 
-Click to go back [home](index.html) 
+Click to go back [home](index.html).  

@@ -12,6 +12,6 @@ My name is Xiaoxue Cui. I'm a second-year MPH student in Epi Departiment at Colu
 
 This site includes a little about my background and some of my coursework. 
 
-To learn more about myself, go [here](resume.html)
+To learn more about myself, go [here](resume.html). 
 
 
